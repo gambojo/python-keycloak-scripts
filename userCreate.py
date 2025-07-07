@@ -5,7 +5,7 @@ import urllib3, json, yaml
 # Disable warnings
 urllib3.disable_warnings(category=urllib3.exceptions.InsecureRequestWarning)
 
-''' docker run -it --rm --network host -v /папка-со-скриптом/на-твоей-машине:/scripts -w /scripts python:3.11 bash
+''' docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
     pip install python-keycloak
     python userCreate.py '''
 

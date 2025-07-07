@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-''' docker run -it --rm --network host -v /папка-со-скриптом/на-твоей-машине:/scripts -w /scripts python:3.11 bash
+import requests, json
+
+''' docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
     pip install requests
     python tokenExchange.py '''
-
-import requests, json
 
 # Set credentials
 user = 'user1'
