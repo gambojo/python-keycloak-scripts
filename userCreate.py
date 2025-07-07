@@ -51,25 +51,16 @@ def parseUsers(usersToCreateDefault):
     return usersToCreate
 
 def admin(adminUser, adminPassword, clientId, realm, url):
-    kcConnection = KeycloakOpenIDConnection(
-                            server_url=url,
-                            username=adminUser,
-                            password=adminPassword,
-                            realm_name=realm,
-                            client_id=clientId,
-                            verify=False)
-
+    kcConnection = KeycloakOpenIDConnection(username=adminUser, password=adminPassword,
+                                            client_id=clientId, server_url=url,
+                                            realm_name=realm, verify=False)
     kcAdmin = KeycloakAdmin(connection=kcConnection)
     return kcAdmin
 
 def userCreate(username, password, email, kcAdmin):
-    addUser = kcAdmin.create_user({"email": email,
-                                   "username": username,
-                                   "enabled": True,
-                                   "credentials": [{"value": password,
-                                                    "type": "password",
-                                                    "temporary": False}]
-                                   }, exist_ok=True)
+    addUser = kcAdmin.create_user({"email": email, "username": username,
+                                   "enabled": True, "credentials": [{"value": password, "type": "password",
+                                                                     "temporary": False}]}, exist_ok=True)
     return addUser
 
 def msgCreate(status, username, userID, message):
