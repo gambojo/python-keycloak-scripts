@@ -64,5 +64,6 @@ def main():
         jsonResult.append(msg)
     print(json.dumps(jsonResult, indent=2))
 
+
 if __name__ == '__main__':
     main()

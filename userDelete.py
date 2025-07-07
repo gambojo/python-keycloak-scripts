@@ -5,6 +5,7 @@ import urllib3, json, yaml
 # Disable warnings
 urllib3.disable_warnings(category=urllib3.exceptions.InsecureRequestWarning)
 
+
 # Set credentials
 adminUser = 'admin'
 adminPassword = 'password'
@@ -65,6 +66,7 @@ def main():
             jsonResult.append(msg)
             pass
     print(json.dumps(jsonResult, indent=2))
+
 
 if __name__ == '__main__':
     main()
