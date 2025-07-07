@@ -2,9 +2,6 @@
 
 import requests, json
 
-''' docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
-    pip install requests
-    python tokenExchange.py '''
 
 # Set credentials
 user = 'user1'
@@ -13,6 +10,7 @@ clientId = 'admin-cli'
 requestedUserId = 'dcaf3acb-3ba6-437e-b1ed-337e5bfc556e'
 realm = 'master'
 server = 'https://keycloak-server.ru'
+
 
 # Const
 url = f"{server}/realms/{realm}/protocol/openid-connect/token"
@@ -47,6 +45,7 @@ def main():
     tokenExchange = exchangeToken(tokenAccess)
     jsonResult = json.dumps(tokenExchange, indent=2)
     print(jsonResult)
+
 
 if __name__ == '__main__':
     main()

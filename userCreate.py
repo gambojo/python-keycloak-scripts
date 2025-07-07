@@ -5,31 +5,14 @@ import urllib3, json, yaml
 # Disable warnings
 urllib3.disable_warnings(category=urllib3.exceptions.InsecureRequestWarning)
 
-''' docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
-    pip install python-keycloak
-    python userCreate.py '''
 
 # Set credentials
 adminUser = 'admin'
 adminPassword = 'password'
 clientId = 'admin-cli'
 realm = 'master'
-url = 'https://keycloak-server.ru'
+server = 'https://keycloak-server.ru'
 usersYamlFile = 'users-add.yaml'
-''' Define a variable with the users you want to add
-    Alternatively, specify these users in the yaml file
-    whose name is defined in the usersYamlFile variable.
-    Example of filling in a file:
-    ---
-    - name: user1
-      email: user1@local.ru
-      password: user1Password
-    - name: user2
-      email: user2@local.ru
-      password: user2Password
-    - name: user3
-      email: user3@local.ru
-      password: user3Password '''
 
 usersToCreateDefault = [
     {
@@ -49,9 +32,9 @@ def parseUsers(usersToCreateDefault):
         pass
     return usersToCreate
 
-def admin(adminUser, adminPassword, clientId, realm, url):
+def admin(adminUser, adminPassword, clientId, realm, server):
     kcConnection = KeycloakOpenIDConnection(username=adminUser, password=adminPassword,
-                                            client_id=clientId, server_url=url,
+                                            client_id=clientId, server_url=server,
                                             realm_name=realm, verify=False)
     kcAdmin = KeycloakAdmin(connection=kcConnection)
     return kcAdmin
@@ -73,7 +56,7 @@ def msgCreate(status, username, userID, message):
 
 def main():
     jsonResult = []
-    kcAdmin = admin(adminUser, adminPassword, clientId, realm, url)
+    kcAdmin = admin(adminUser, adminPassword, clientId, realm, server)
     usersToCreate = parseUsers(usersToCreateDefault)
     for item in usersToCreate:
         userID = userCreate(item['name'], item['password'], item['email'], kcAdmin)

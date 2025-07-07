@@ -5,26 +5,13 @@ import urllib3, json, yaml
 # Disable warnings
 urllib3.disable_warnings(category=urllib3.exceptions.InsecureRequestWarning)
 
-''' docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
-    pip install python-keycloak
-    python userDelete.py '''
-
 # Set credentials
 adminUser = 'admin'
 adminPassword = 'password'
 clientId = 'admin-cli'
 realm = 'master'
-url = 'https://keycloak-server.ru'
+server = 'https://keycloak-server.ru'
 usersYamlFile = 'users-del.yaml'
-
-''' Define a variable with the users you want to delete
-    Alternatively, specify these users in the yaml file
-    whose name is defined in the usersYamlFile variable.
-    Example of filling in a file:
-    ---
-    - user1
-    - user2
-    - user3 '''
 
 usersToDeleteDefault = [
     'user1'
@@ -40,9 +27,9 @@ def parseUsers(usersToDeleteDefault):
         pass
     return usersToDelete
 
-def admin(adminUser, adminPassword, clientId, realm, url):
+def admin(adminUser, adminPassword, clientId, realm, server):
     kcConnection = KeycloakOpenIDConnection(username=adminUser, password=adminPassword,
-                                            client_id=clientId, server_url=url,
+                                            client_id=clientId, server_url=server,
                                             realm_name=realm, verify=False)
     kcAdmin = KeycloakAdmin(connection=kcConnection)
     return kcAdmin
@@ -64,7 +51,7 @@ def msgCreate(status, username, message):
     return msg
 
 def main():
-    kcAdmin = admin(adminUser, adminPassword, clientId, realm, url)
+    kcAdmin = admin(adminUser, adminPassword, clientId, realm, server)
     jsonResult = []
     usersToDelete = parseUsers(usersToDeleteDefault)
     for username in usersToDelete:

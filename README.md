@@ -5,13 +5,29 @@
 **adminPassword:** password of realm admin </br>
 **clientId:** id of client </br>
 **realm:** realm name </br>
-**usersYamlFile:** path to yaml file with users </br>
+**usersYamlFile:** path to yaml file with users, example - users-add.yaml or users-del.yaml </br>
 **usersToCreateDefault/usersToDeleteDefault:** default var with users if yaml file does not exists. </br>
+**requestedUserId**: id of user for token exchange
+
 
 ## Create users
+#### Set required users to create in yaml file example ./users-add.yaml
+Define a variable with the users you want to delete </br>
+Alternatively, specify these users in the yaml file </br>
+whose name is defined in the usersYamlFile variable. </br>
+Example of filling in a file:
+```
+---
+- user1
+- user2
+- user3
+```
 #### Command
 ```
-./userCreate.py
+docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
+pip install python-keycloak
+python userCreate.py
+
 ```
 #### Response
 ```
@@ -38,9 +54,28 @@
 ```
 
 ## Delete users
+#### Set required users to delete in yaml file example ./users-del.yaml
+Define a variable with the users you want to add </br>
+Alternatively, specify these users in the yaml file </br>
+whose name is defined in the usersYamlFile variable. </br>
+Example of filling in a file:
+```
+---
+- name: user1
+  email: user1@local.ru
+  password: user1Password
+- name: user2
+  email: user2@local.ru
+  password: user2Password
+- name: user3
+  email: user3@local.ru
+  password: user3Password
+```
 #### Command
 ```
-./userDelete.py
+docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
+pip install python-keycloak
+python userDelete.py
 ```
 #### Response
 ```
@@ -66,7 +101,9 @@
 ## Get access token and token exchange
 #### Command
 ```
-./tokenExchange.py
+docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
+pip install requests
+python tokenExchange.py
 ```
 #### Response
 ```
