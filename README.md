@@ -1,5 +1,13 @@
 # python-keycloak-scripts
 
+## Variables
+**adminUser:** username of realm admin </br>
+**adminPassword:** password of realm admin </br>
+**clientId:** id of client </br>
+**realm:** realm name </br>
+**usersYamlFile:** path to yaml file with users </br>
+**usersToCreateDefault/usersToDeleteDefault:** default var with users if yaml file does not exists. </br>
+
 ## Create users
 #### Command
 ```
