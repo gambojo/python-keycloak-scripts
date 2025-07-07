@@ -23,14 +23,14 @@ usersYamlFile = 'users-add.yaml'
     Example of filling in a file:
     ---
     - name: user1
-    email: user1@local.ru
-    password: user1Password
+      email: user1@local.ru
+      password: user1Password
     - name: user2
-    email: user2@local.ru
-    password: user2Password
+      email: user2@local.ru
+      password: user2Password
     - name: user3
-    email: user3@local.ru
-    password: user3Password '''
+      email: user3@local.ru
+      password: user3Password '''
 
 usersToCreateDefault = [
     {
