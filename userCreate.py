@@ -10,11 +10,11 @@ urllib3.disable_warnings(category=urllib3.exceptions.InsecureRequestWarning)
     python userCreate.py '''
 
 # Set credentials
-adminUser = 'apihubidentity'
-adminPassword = 'C2KFi6uA-_'
-clientId = 'apihub-cli'
-realm = 'APIHUB'
-url = 'https://keycloak.apps.k8s-6.cp.dev.cldx.ru'
+adminUser = 'admin'
+adminPassword = 'password'
+clientId = 'admin-cli'
+realm = 'master'
+url = 'https://keycloak-server.ru'
 usersYamlFile = 'users-add.yaml'
 ''' Define a variable with the users you want to add
     Alternatively, specify these users in the yaml file
