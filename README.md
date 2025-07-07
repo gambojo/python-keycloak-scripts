@@ -12,15 +12,21 @@
 
 ## Create users
 #### Set required users to create in yaml file example ./users-add.yaml
-Define a variable with the users you want to delete </br>
+Define a variable with the users you want to add </br>
 Alternatively, specify these users in the yaml file </br>
 whose name is defined in the usersYamlFile variable. </br>
 Example of filling in a file:
 ```
 ---
-- user1
-- user2
-- user3
+- name: user1
+  email: user1@local.ru
+  password: user1Password
+- name: user2
+  email: user2@local.ru
+  password: user2Password
+- name: user3
+  email: user3@local.ru
+  password: user3Password
 ```
 #### Command
 ```
@@ -54,23 +60,17 @@ python userCreate.py
 ```
 
 ## Delete users
-#### Set required users to delete in yaml file example ./users-del.yaml
-Define a variable with the users you want to add </br>
+Define a variable with the users you want to delete </br>
 Alternatively, specify these users in the yaml file </br>
 whose name is defined in the usersYamlFile variable. </br>
 Example of filling in a file:
 ```
 ---
-- name: user1
-  email: user1@local.ru
-  password: user1Password
-- name: user2
-  email: user2@local.ru
-  password: user2Password
-- name: user3
-  email: user3@local.ru
-  password: user3Password
+- user1
+- user2
+- user3
 ```
+#### Set required users to delete in yaml file example ./users-del.yaml
 #### Command
 ```
 docker run -it --rm --network host -v /dir-with-script/on-your-host:/scripts -w /scripts python:3.11 bash
