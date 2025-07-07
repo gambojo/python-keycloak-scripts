@@ -7,13 +7,12 @@
 import requests, json
 
 # Set credentials
-user = 'agamovga@local.ru'
-password = '123'
-clientId = 'apihub-cli'
+user = 'user1'
+password = 'password'
+clientId = 'admin-cli'
 requestedUserId = 'dcaf3acb-3ba6-437e-b1ed-337e5bfc556e'
-realm = 'APIHUB'
-server = 'https://keycloak.apps.k8s-6.cp.dev.cldx.ru'
-
+realm = 'master'
+server = 'https://keycloak-server.ru'
 
 # Const
 url = f"{server}/realms/{realm}/protocol/openid-connect/token"
