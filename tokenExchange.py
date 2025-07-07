@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 ''' docker run -it --rm --network host -v /папка-со-скриптом/на-твоей-машине:/scripts -w /scripts python:3.11 bash
-    pip install python-keycloak
-    python userCreate.py '''
+    pip install requests
+    python tokenExchange.py '''
 
 import requests, json
 
