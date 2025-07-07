@@ -3,7 +3,6 @@
 import requests, json
 
 
-# Set credentials
 user = 'user1'
 password = 'password'
 clientId = 'admin-cli'
@@ -12,7 +11,6 @@ realm = 'master'
 server = 'https://keycloak-server.ru'
 
 
-# Const
 url = f"{server}/realms/{realm}/protocol/openid-connect/token"
 
 def accessToken():

@@ -2,11 +2,9 @@
 
 from keycloak import KeycloakAdmin, KeycloakOpenIDConnection
 import urllib3, json, yaml
-# Disable warnings
 urllib3.disable_warnings(category=urllib3.exceptions.InsecureRequestWarning)
 
 
-# Set credentials
 adminUser = 'admin'
 adminPassword = 'password'
 clientId = 'admin-cli'
