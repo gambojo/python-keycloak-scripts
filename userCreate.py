@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
-''' docker run -it --rm --network host -v /папка-со-скриптом/на-твоей-машине:/scripts -w /scripts python:3.11 bash
-    pip install python-keycloak
-    python userCreate.py '''
-
 from keycloak import KeycloakAdmin, KeycloakOpenIDConnection
 import urllib3, json, yaml
 # Disable warnings
 urllib3.disable_warnings(category=urllib3.exceptions.InsecureRequestWarning)
 
+''' docker run -it --rm --network host -v /папка-со-скриптом/на-твоей-машине:/scripts -w /scripts python:3.11 bash
+    pip install python-keycloak
+    python userCreate.py '''
 
 # Set credentials
 adminUser = 'apihubidentity'
