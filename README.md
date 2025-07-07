@@ -40,20 +40,17 @@
   {
     "status": "success",
     "user": "user1",
-    "id": "2695473a-6fff-43db-9a61-61f7fb1e0877",
-    "message": "User successful created"
+    "message": "User successful deleted"
   },
   {
     "status": "success",
     "user": "user2",
-    "id": "8e4c565d-36d7-44b4-abf1-528402622039",
-    "message": "User successful created"
+    "message": "User successful deleted"
   },
   {
     "status": "success",
     "user": "user3",
-    "id": "0b18d4d3-1825-49d4-b72b-a9cd82b72e7a",
-    "message": "User successful created"
+    "message": "User successful deleted"
   }
 ]
 ```
